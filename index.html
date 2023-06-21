@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tailwind Responsive Website</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="bg-color-primary text-color-white tracking-wider">
 
@@ -17,7 +18,7 @@
                 </a>
             </div>
             <div>
-                <ul class="flex items-center space-x-6">
+                <ul class="hidden lg:flex items-center space-x-6">
                     <li><a href="#home" class="hover:text-color-secondary ease-in duration-200">Home</a></li>
                     <li><a href="#features" class="hover:text-color-secondary ease-in duration-200">Features</a></li>
                     <li><a href="#testimonial" class="hover:text-color-secondary ease-in duration-200">Testimonial</a></li>
@@ -28,8 +29,64 @@
                     <li> <button class="bg-color-secondary px-9 py-3 rounded-md capitalize font-bold hover:opacity-80 ease-in duration-200">Free Trial</button></li>
                 </ul>
             </div>
+
+            <!-- mobile  -->
+            <div id="hamburger" class="lg:hidden cursor-pointer z-50">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div id="mobile-menu" class="hidden bg-color-primary-dark h-[100vh] absolute inset-0">
+                <ul class="h-full grid place-items-center py-20">
+                    <li><a id="mlink" href="#home" class="hover:text-color-secondary ease-in duration-200">Home</a></li>
+                    <li><a id="mlink" href="#features" class="hover:text-color-secondary ease-in duration-200">Features</a></li>
+                    <li><a id="mlink" href="#testimonial" class="hover:text-color-secondary ease-in duration-200">Testimonial</a></li>
+                    <li><a id="mlink" href="#pricing" class="hover:text-color-secondary ease-in duration-200">Pricing</a></li>
+                    <li><a id="mlink" href="#blog" class="hover:text-color-secondary ease-in duration-200">Blog</a></li>
+                    <li><a id="mlink" href="#contact" class="hover:text-color-secondary ease-in duration-200">Contact</a></li>
+                    <li> <button class="btn">Free Trial</button></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
+    <main>
+        <section id="hero" class="relative">
+            <div class="w-80 h-80 bg-color-blob absolute top-0 -left-5 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full">
+             </div>
+             <div class="w-80 h-80 bg-color-secondary absolute bottom-10 right-0 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full">
+                </div>
+                <div class="container py-20 ">
+                    <div class="flex flex-col items-center z-20 md:flex-row">
+                        <div class="text-center mb-12 md:text-left md:w-1/2 md:pr-10">
+                            <h1 class="title mb-4">Awesome App for your business</h1>
+                            <p class="leading-relaxed mb-10 ">This should be used to tell a story and let your users know a little more about the app and it's use, How can benefit them.</p>
+                            <button class="btn">Download App</button>
+                        </div>
+                        <div class="md:w-1/2">
+                            <img src="./images/hero1.png" alt="Hero image">
+                        </div>
+                    </div>
+                </div> 
+        </section>
+    </main>
+
+<script>
+    // mobile menu
+    let hamburger = document.querySelector('#hamburger');
+    let mobile_menu = document.querySelector('#mobile-menu');
+    let mlink = document.querySelector('#mlink');
+    let faSolid = document.querySelector('.fa-solid');
+    // toggle menu while clicking the hamburger and place x icon instead of hamburger
+    hamburger.addEventListener("click", ()=> {
+        mobile_menu.classList.toggle('hidden');
+        faSolid.classList.toggle('fa-xmark');
+    })
+    // toggle menu while clicking any menu link 
+     mlink.forEach(link => {
+        link.addEventListener('click', ()=>{
+            mobile_menu.classList.toggle('hidden');
+            faSolid.classList.toggle('fa-xmark');
+        })
+    })
+</script>
 </body>
 </html>
