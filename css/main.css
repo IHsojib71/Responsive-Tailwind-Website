@@ -982,6 +982,16 @@ video {
     left: 8rem;
   }
 
+  .lg\:after\:top-10::after {
+    content: var(--tw-content);
+    top: 2.5rem;
+  }
+
+  .lg\:after\:top-12::after {
+    content: var(--tw-content);
+    top: 3rem;
+  }
+
   .lg\:after\:flex::after {
     content: var(--tw-content);
     display: flex;
